@@ -39,7 +39,7 @@ def get_face_attribute(path):
 
     data = {}
 
-    for line in get_lines("video.mp4"):
+    for line in get_lines("tmp.mp4"):
         if line.startswith("image_quality"):
             data["image_quality"] = float(line.split(":")[1][1:])
 

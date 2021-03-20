@@ -18,7 +18,7 @@ smile_double = 0.5
 
 def rSimilarEmoticon(receivejson):
     print(receivejson)
-    print("aaa\n\n\n\n")
+
     print(sad_emoticons)
     print(happy_emoticons)
     print(calm_emoticons)
@@ -26,9 +26,9 @@ def rSimilarEmoticon(receivejson):
     happyjson = happy_emoticons
     calmjson = calm_emoticons
 
-    for data in happyjson:
+    for data in happy_emoticons:
         sadjson.append(data)
-    for data in calmjson:
+    for data in sad_emoticons:
         sadjson.append(data)
 
     cjson = sadjson
@@ -39,6 +39,7 @@ def rSimilarEmoticon(receivejson):
     similarscore = 999999
     #sumの値が0に近いほど類似
     for i in range(0,len(cjson)):
+        print("a")
         score = 0
         score += abs(cjson[i]["age"] - receivejson["age"]) * age_double
         score += abs(cjson[i]["is_mask"] - receivejson["is_mask"]) * mask_double

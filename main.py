@@ -3,13 +3,15 @@ from similarcheck import rSimilarEmoticon
 from ui.main import MainUI
 from time import sleep
 import os
+kpath = "C:/Users/kosakae256/Documents/Kosakae-Deployment/EmoFace/data/image/pushphoto.png"
+tpath = "C:/Users/takara2314/OneDrive/EmoFace/data/image/pushphoto.png"
 
 def function(filepath):
     print("aaa")
     data = get_face_attribute(filepath)
     emoticon = rSimilarEmoticon(data)
     print(emoticon)
-    return "C:\\Users\\takara2314\\OneDrive\\EmoFace\\data\\image\\pushphoto.png"
+    return kpath
 
 if __name__ == '__main__':
      Ui = MainUI(function)

@@ -1,7 +1,5 @@
 import os
-from data.emoticons.calm import calm_emoticons
-from data.emoticons.happy import happy_emoticons
-from data.emoticons.sad import sad_emoticons
+from data.emoticons.all import all_emoticons as cjson
 
 path = os.path.dirname(os.path.abspath(__file__))
 
@@ -17,23 +15,10 @@ smile_double = 0.5
 
 
 def rSimilarEmoticon(receivejson):
-    print(receivejson)
-
-    print(sad_emoticons)
-    print(happy_emoticons)
-    print(calm_emoticons)
-    sadjson = sad_emoticons
-    happyjson = happy_emoticons
-    calmjson = calm_emoticons
-
-    for data in happy_emoticons:
-        sadjson.append(data)
-    for data in sad_emoticons:
-        sadjson.append(data)
-
-    cjson = sadjson
-
+    if receivejson == {}:
+        return "404"
     print(cjson)
+    print(cjson[0]["age"])
 
     similarnum = 0
     similarscore = 999999

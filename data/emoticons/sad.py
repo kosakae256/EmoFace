@@ -13,7 +13,11 @@ sad_emoticons = [
         "smile_score": 20
     },
     {
+<<<<<<< HEAD
         "emoticon": "(´・ω・`)",
+=======
+        "emoticon": "(´；ω；`)",
+>>>>>>> 818eb73a34d6245c01ca6f9ff9a8fef9f9211912
         "age": 25,
         "gender": 0,
         "is_mask": 0,
@@ -23,6 +27,192 @@ sad_emoticons = [
         "is_positive": 0,
         "is_neutral": 0,
         "is_negative": 1,
+<<<<<<< HEAD
         "smile_score": 20
+=======
+        "smile_score": 2
+    },
+    {
+        "emoticon": "('⌒`)",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 0,
+        "is_beard": 0,
+        "charm_score": 6,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 5
+    },
+    {
+        "emoticon": "(`д´)",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 0,
+        "is_beard": 0,
+        "charm_score": 15,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 2
+    },
+    {
+        "emoticon": "( '~')",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 0,
+        "is_beard": 0,
+        "charm_score": 13,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 10
+    },
+    {
+        "emoticon": "(=_=)",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 1,
+        "is_beard": 0,
+        "charm_score": 8,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 10
+    },
+    {
+        "emoticon": "('._.`)",
+        "age": 30,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 0,
+        "is_beard": 0,
+        "charm_score": 8,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 7
+    },
+    {
+        "emoticon": "(-_-;)",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 0,
+        "is_beard": 0,
+        "charm_score": 7,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 8
+    },
+    {
+        "emoticon": "(´-ω-｀)",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 0,
+        "is_beard": 0,
+        "charm_score": 7,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 7
+    },
+    {
+        "emoticon": "｡･ﾟ･(ﾉ∀`)･ﾟ･｡",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 0,
+        "is_beard": 0,
+        "charm_score": 20,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 8
+    },
+    {
+        "emoticon": "(-＿-)",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 0,
+        "is_beard": 0,
+        "charm_score": 7,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 10
+    },
+    {
+        "emoticon": "(;ﾟДﾟi|!)",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 0,
+        "is_beard": 0,
+        "charm_score": 12,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 6
+    },
+    {
+        "emoticon": "( ´◎三◎｀)",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 1,
+        "glasses": 1,
+        "is_beard": 0,
+        "charm_score": 13,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 7
+    },
+    {
+        "emoticon": "('◎A◎`)",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 1,
+        "is_beard": 0,
+        "charm_score": 13,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 7
+    },
+    {
+        "emoticon": "( ´；_；｀)",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 0,
+        "is_beard": 0,
+        "charm_score": 14,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 2
+    },
+    {
+        "emoticon": "(;´∞`)",
+        "age": 25,
+        "gender": 0,
+        "is_mask": 0,
+        "glasses": 0,
+        "is_beard": 0,
+        "charm_score": 11,
+        "is_positive": 0,
+        "is_neutral": 0,
+        "is_negative": 1,
+        "smile_score": 7
+>>>>>>> 818eb73a34d6245c01ca6f9ff9a8fef9f9211912
     }
 ]

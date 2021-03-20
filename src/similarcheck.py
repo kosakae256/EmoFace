@@ -7,7 +7,7 @@ path = os.path.dirname(os.path.abspath(__file__))
 
 print(sadjson)
 
-age_double = 1
+age_double = 0.3
 charm_double = 0.3
 mask_double = 20
 glasses_double = 20

@@ -15,7 +15,6 @@ if __name__ == '__main__':
     os.chdir("models")
     # models フォルダからみたファイルパスを指定
     data = get_face_attribute("../data/image/sample.png")
-    os.remove("tmp.mp4")
     os.chdir("/")
 
     # 後は焼くなり煮るなり好きにしやがれください

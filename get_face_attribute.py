@@ -1,5 +1,6 @@
 import subprocess
 import cv2
+import os
 
 def get_face_attribute(path):
     def get_lines(path):
@@ -79,4 +80,6 @@ def get_face_attribute(path):
         elif line.startswith("average_smile_score"):
             data["average_smile_score"] = int(line.split(":")[1][1:])
 
+    # 生成するのに必要な仮ビデオファイルを削除
+    os.remove("tmp.mp4")
     return data

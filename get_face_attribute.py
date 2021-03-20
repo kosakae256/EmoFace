@@ -69,16 +69,13 @@ def get_face_attribute(path):
             data["is_positive"] = int(line.split(":")[1][1:])
 
         elif line.startswith("is_neutral"):
-            data["neutral"] = int(line.split(":")[1][1:])
+            data["is_neutral"] = int(line.split(":")[1][1:])
 
         elif line.startswith("is_negative"):
             data["is_negative"] = int(line.split(":")[1][1:])
 
         elif line.startswith("smile_score"):
-            data["smile_sore"] = int(line.split(":")[1][1:])
-
-        elif line.startswith("average_smile_score"):
-            data["average_smile_score"] = int(line.split(":")[1][1:])
+            data["smile_score"] = int(line.split(":")[1][1:])
 
     # 生成するのに必要な仮ビデオファイルを削除
     os.remove("tmp.mp4")

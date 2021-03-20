@@ -1,0 +1,17 @@
+{
+    "emoticons": [
+        {
+            "emoticon": "(・ω・)",
+            "age": 25,
+            "gender": 0,
+            "is_mask": 0,
+            "glasses": 0,
+            "is_beard": 0,
+            "charm_score": 10,
+            "is_positive": 1,
+            "is_neutral": 0,
+            "is_negative": 0,
+            "smile_score": 90
+        }
+    ]
+}

@@ -42,9 +42,9 @@ void updateCurrentFaces(cv::Mat* frame) {
 		// 顔の属性
 		STIFaceAttribute basicAttribute;
 		// 顔の表情
-        STIFaceEmotion faceEmotion;
+		STIFaceEmotion faceEmotion;
 		// 顔のスマイル度
-        STIFaceSmile faceSmile;
+		STIFaceSmile faceSmile;
 
 		// 顔の個数
 		int faceCount = faces->faceCount;
@@ -82,7 +82,8 @@ void updateCurrentFaces(cv::Mat* frame) {
 
 			cout << "--- RESULTS END ---\n";
 		}
-	} else {
+	}
+	else {
 		cout << "[ERROR] Model failed getting current faces.\n";
 	}
 }
@@ -92,7 +93,7 @@ void frameTracker() {
 	static int count = 0;
 
 	cv::Mat srcFrame;
-	STIImage image = {0};
+	STIImage image = { 0 };
 	STIResult ret = STI_OK;
 
 	while (!sFrameTrackerStop) {
@@ -105,13 +106,14 @@ void frameTracker() {
 
 			cout << "[ERROR] Black frame grabbed.\n";
 
-			#ifdef _MSC_VER
+#ifdef _MSC_VER
 			Sleep(30);
-			#else
+#else
 			usleep(30 * 1000);
-			#endif
+#endif
 			continue;
-		} else {
+		}
+		else {
 			count = 0;
 		}
 
@@ -122,26 +124,26 @@ void frameTracker() {
 			cv::Mat* copy = new cv::Mat();
 			dstFrame.copyTo(*copy);
 			_frameQueue.push(copy);
- 		}
+		}
 
 		image.data = dstFrame.data;
-        image.format = STI_PIX_FMT_BGR888;
-        image.width = dstFrame.cols;
-        image.height = dstFrame.rows;
-        image.stride = dstFrame.cols * 3;
-        image.reserved0 = 0;
-        image.reserved1 = 0;
+		image.format = STI_PIX_FMT_BGR888;
+		image.width = dstFrame.cols;
+		image.height = dstFrame.rows;
+		image.stride = dstFrame.cols * 3;
+		image.reserved0 = 0;
+		image.reserved1 = 0;
 
 		ret = STTrackAsync(&image);
 		if (ret != STI_OK) {
 			cout << "[ERROR] Async track failed, rc = " << ret << "\n";
 		}
 
-		#ifdef _MSC_VER
+#ifdef _MSC_VER
 		Sleep(30);
-		#else
+#else
 		usleep(30 * 1000);
-		#endif
+#endif
 	}
 }
 
@@ -160,32 +162,35 @@ void loggerThread() {
 
 				resize(*frame, *frame, cv::Size(), 0.5, 0.5);
 
-				// フレームを表示
-				cv::imshow("image", *frame);
-				cv::waitKey(10);
-
 				// フレームを開放
 				delete frame;
 			}
 		}
 
-		#ifdef _MSC_VER
+#ifdef _MSC_VER
 		Sleep(10);
-		#else
+#else
 		usleep(30 * 1000);
-		#endif
+#endif
 	}
 }
 
 int main(int argc, char* argv[]) {
-	// カメラを起動
-	cap.open(0);
+	// コマンドライン引数が指定されていないなら
+	if (argc == 1) {
+		// カメラを起動
+		cap.open(0);
+	} else {
+		// 動画をロード
+		string filePath = argv[1];
+		cap.open(filePath);
+	}
 
-	// カメラの解像度を設定
+	// カメラもしくは動画の解像度を設定
 	cap.set(cv::VideoCaptureProperties::CAP_PROP_FRAME_HEIGHT, 720);
-    cap.set(cv::VideoCaptureProperties::CAP_PROP_FRAME_WIDTH, 1280);
+	cap.set(cv::VideoCaptureProperties::CAP_PROP_FRAME_WIDTH, 1280);
 
-	// カメラの起動が失敗したら
+	// カメラもしくは動画の読み込みが失敗したら
 	if (!cap.isOpened()) {
 		cout << "[ERROR] Openning capture failed.\n";
 		return -1;
@@ -193,20 +198,20 @@ int main(int argc, char* argv[]) {
 
 	// コンフィグのパス
 	const char* configFilePath = "config\\device.cfg";
-    string modelDir = "primary_models\\";
-    const char* licensePath = "primary_models\\license.lic";
-    const char* activationCodePath = "primary_models\\code.dat";
+	string modelDir = "primary_models\\";
+	const char* licensePath = "primary_models\\license.lic";
+	const char* activationCodePath = "primary_models\\code.dat";
 
 	// モデルをロード
 	STIResult ret = STSdkInit(STI_SOFTWARE_MODE, licensePath, activationCodePath, (const char*)configFilePath);
-    STSetModelPath(STI_MODEL_FACE_DETECT, (modelDir + "M_Detect_Hunter_Common_Gray_10.1.1.model").c_str());
-    STSetModelPath(STI_MODEL_FACE_ALIGN, (modelDir + "M_Align_Deepface_106_track_2.20.1.model").c_str());
-    STSetModelPath(STI_MODEL_FACE_HEADPOSE, (modelDir + "M_Align_CalcPose_Ann_106_2.3.0.model").c_str());
-    STSetModelPath(STI_MODEL_FACE_ATTR, (modelDir + "M_Attribute_Face_Advertisement_2.11.1.model").c_str());
-    STSetModelPath(STI_MODEL_FACE_VERIFY, (modelDir + "M_Verify_Insight_Common_4.2.0.model").c_str());
-    STSetModelPath(STI_MODEL_BODY_DETECT, (modelDir + "M_Detect_Body_Hunter_1.7.0.model").c_str());
-    STSetModelPath(STI_MODEL_BODY_ALIGN, (modelDir + "M_Detect_Body_Keypoints_5.0.17.model").c_str());
-    STSetModelPath(STI_MODEL_BODY_ATTR, (modelDir + "M_Attribute_Body_Fir_1.2.2.model").c_str());
+	STSetModelPath(STI_MODEL_FACE_DETECT, (modelDir + "M_Detect_Hunter_Common_Gray_10.1.1.model").c_str());
+	STSetModelPath(STI_MODEL_FACE_ALIGN, (modelDir + "M_Align_Deepface_106_track_2.20.1.model").c_str());
+	STSetModelPath(STI_MODEL_FACE_HEADPOSE, (modelDir + "M_Align_CalcPose_Ann_106_2.3.0.model").c_str());
+	STSetModelPath(STI_MODEL_FACE_ATTR, (modelDir + "M_Attribute_Face_Advertisement_2.11.1.model").c_str());
+	STSetModelPath(STI_MODEL_FACE_VERIFY, (modelDir + "M_Verify_Insight_Common_4.2.0.model").c_str());
+	STSetModelPath(STI_MODEL_BODY_DETECT, (modelDir + "M_Detect_Body_Hunter_1.7.0.model").c_str());
+	STSetModelPath(STI_MODEL_BODY_ALIGN, (modelDir + "M_Detect_Body_Keypoints_5.0.17.model").c_str());
+	STSetModelPath(STI_MODEL_BODY_ATTR, (modelDir + "M_Attribute_Body_Fir_1.2.2.model").c_str());
 
 	// モデルをチェック
 	if (ret != STI_OK) {

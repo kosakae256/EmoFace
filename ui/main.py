@@ -91,7 +91,7 @@ class MainUI():
         self.frame1.destroy()
         self.displayframe2()
         #imageの形式は、path
-        self.emofacepath = self.f()
+        self.emofacepath = self.f(self.selectfile_path)
         self.frame2.destroy()
         self.displayframe3()
 

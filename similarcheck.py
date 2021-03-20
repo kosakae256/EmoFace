@@ -1,11 +1,9 @@
 import os
-import ..data.json.calm
-import ..data.json.happy
-import ..data.json.sad
+from data.emoticons.calm import calm_emoticons
+from data.emoticons.happy import happy_emoticons
+from data.emoticons.sad import sad_emoticons
 
 path = os.path.dirname(os.path.abspath(__file__))
-
-print(sadjson)
 
 age_double = 0.3
 charm_double = 0.3
@@ -18,12 +16,24 @@ neutral_double = 5
 smile_double = 0.5
 
 
-def rSimilarImagePath(receivejson):
-    sadjson = None
-    happyjson = None
-    calmjson = None
+def rSimilarEmoticon(receivejson):
+    print(receivejson)
+    print("aaa\n\n\n\n")
+    print(sad_emoticons)
+    print(happy_emoticons)
+    print(calm_emoticons)
+    sadjson = sad_emoticons
+    happyjson = happy_emoticons
+    calmjson = calm_emoticons
 
-    cjson = None
+    for data in happyjson:
+        sadjson.append(data)
+    for data in calmjson:
+        sadjson.append(data)
+
+    cjson = sadjson
+
+    print(cjson)
 
     similarnum = 0
     similarscore = 999999
@@ -46,3 +56,4 @@ def rSimilarImagePath(receivejson):
 
     print(similarnum)
     print(similarscore)
+    return receivejson[similarnum]["emoticon"]

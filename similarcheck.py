@@ -15,8 +15,9 @@ smile_double = 0.5
 
 
 def rSimilarEmoticon(receivejson):
+    print(receivejson)
     if receivejson == {}:
-        return "404"
+        return "Error"
     print(cjson)
     print(cjson[0]["age"])
 
@@ -32,7 +33,7 @@ def rSimilarEmoticon(receivejson):
         score += abs(cjson[i]["is_beard"] - receivejson["is_beard"]) * beard_double
         score += abs(cjson[i]["charm_score"] - receivejson["charm_score"]) * charm_double
         score += abs(cjson[i]["is_positive"] - receivejson["is_positive"]) * positive_double
-        score += abs(cjson[i]["neutral"] - receivejson["neutral"]) * neutral_double
+        score += abs(cjson[i]["is_neutral"] - receivejson["is_neutral"]) * neutral_double
         score += abs(cjson[i]["is_positive"] - receivejson["is_positive"]) * positive_double
         score += abs(cjson[i]["smile_score"] - receivejson["smile_score"]) * smile_double
 
@@ -42,4 +43,4 @@ def rSimilarEmoticon(receivejson):
 
     print(similarnum)
     print(similarscore)
-    return receivejson[similarnum]["emoticon"]
+    return cjson[similarnum]["emoticon"]

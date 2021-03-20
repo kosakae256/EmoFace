@@ -13,11 +13,7 @@ sad_emoticons = [
         "smile_score": 20
     },
     {
-<<<<<<< HEAD
-        "emoticon": "(´・ω・`)",
-=======
         "emoticon": "(´；ω；`)",
->>>>>>> 818eb73a34d6245c01ca6f9ff9a8fef9f9211912
         "age": 25,
         "gender": 0,
         "is_mask": 0,
@@ -27,9 +23,6 @@ sad_emoticons = [
         "is_positive": 0,
         "is_neutral": 0,
         "is_negative": 1,
-<<<<<<< HEAD
-        "smile_score": 20
-=======
         "smile_score": 2
     },
     {
@@ -213,6 +206,5 @@ sad_emoticons = [
         "is_neutral": 0,
         "is_negative": 1,
         "smile_score": 7
->>>>>>> 818eb73a34d6245c01ca6f9ff9a8fef9f9211912
     }
 ]

@@ -4,6 +4,7 @@ from tkinter import font
 from PIL import Image,ImageTk
 import os
 import tkinter.filedialog
+import pyperclip
 
 path = os.path.dirname(os.path.abspath(__file__))
 MAXIMAGEWIDTH = 550
@@ -65,7 +66,7 @@ class MainUI():
         self.img = Image.open(self.emofacepath)
         self.img = self.img.resize((MAXIMAGEWIDTH,MAXIMAGEHEIGHT),Image.NEAREST)
         self.ph = ImageTk.PhotoImage(self.img)
-        self.frame3Image = tk.Label(master=self.frame3, image=self.ph,background = '#ffffff')
+        self.frame3Image = tk.Label(master=self.frame3, image=self.ph,background = '#ffffff',borderwidth = 6,relief="ridge")
         self.frame3Image.grid(row=1, column=0,pady=(30,0))
 
         self.frame3Label = ttk.Label(self.frame3, text="Complete",font=self.frame3font,background='#ffffff')
@@ -74,8 +75,8 @@ class MainUI():
         self.frame3Button = tk.Button(self.frame3, text="Copy!",font=self.frame3font2,command=self.copytext)
         self.frame3Button.grid(row=3, column=0,pady=(15,0))
 
-        self.frame3Button = tk.Button(self.frame3, text="Save Image!",font=self.frame3font2,command=self.saveimage)
-        self.frame3Button.grid(row=4, column=0,pady=(15,0))
+        self.frame3Button2 = tk.Button(self.frame3, text="Return Home",font=self.frame3font2,command=self.home)
+        self.frame3Button2.grid(row=4, column=0,pady=(15,0))
 
     def pushimage(self):
         typ = [('Png Image','*.png'),('Jpeg Image','*.jpg')]
@@ -91,15 +92,17 @@ class MainUI():
         self.frame1.destroy()
         self.displayframe2()
         #imageの形式は、path
-        self.emofacepath = self.f(self.selectfile_path)
+        self.emofacepath,self.emoticon = self.f(self.selectfile_path)
         self.frame2.destroy()
         self.displayframe3()
 
     def copytext(self):
-        pass
+        pyperclip.copy("#hackday2021 ものづくりって楽しいね"+self.emoticon)
+        self.frame3Button["text"] = "Copied!"
 
-    def saveimage(self):
-        pass
+    def home(self):
+        self.frame3.destroy()
+        self.displayframe1()
 
 
 

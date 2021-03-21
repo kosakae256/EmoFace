@@ -30,11 +30,12 @@ def get_face_attribute(path):
                 yield line.replace("\n", "")
             if not line and cp.poll() is not None:
                 break
-
+    img = cv2.imread(path)
+    print(img.shape)
     fourcc = cv2.VideoWriter_fourcc("m", "p", "4", "v")
-    video = cv2.VideoWriter("tmp.mp4", fourcc, 8.0, (1280, 720))
+    video = cv2.VideoWriter("tmp.mp4", fourcc, 20.0, (img.shape[0], img.shape[1]))
 
-    for i in range(8):
+    for i in range(20):
         video.write(cv2.imread(path))
     video.release()
 
@@ -78,5 +79,4 @@ def get_face_attribute(path):
             data["smile_score"] = int(line.split(":")[1][1:])
 
     # 生成するのに必要な仮ビデオファイルを削除
-    os.remove("tmp.mp4")
     return data

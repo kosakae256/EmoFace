@@ -12,6 +12,7 @@ path = os.path.dirname(os.path.abspath(__file__))
 def function(filepath):
     print(filepath)
     os.chdir(f"{path}/models/")
+    print(filepath)
     data = get_face_attribute(filepath)
     os.chdir(f"{path}/")
     emoticon = rSimilarEmoticon(data)

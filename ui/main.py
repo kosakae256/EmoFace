@@ -31,7 +31,7 @@ class MainUI():
         self.frame1Title.grid(row=0, column=0)
 
         self.img = Image.open(f"{path}/../data/image/pushphoto.png")
-        self.img = self.img.resize((MAXIMAGEWIDTH,MAXIMAGEHEIGHT),Image.NEAREST)
+        self.img = self.img.resize((300,MAXIMAGEHEIGHT),Image.NEAREST)
         self.ph = ImageTk.PhotoImage(self.img)
         self.frame1Image = ttk.Label(master=self.frame1, image=self.ph,borderwidth = 6,relief="ridge")
         self.frame1Image.grid(row=1, column=0,pady=(30,0))
@@ -79,10 +79,10 @@ class MainUI():
         self.frame3Button2.grid(row=4, column=0,pady=(15,0))
 
     def pushimage(self):
-        typ = [('Png Image','*.png'),('Jpeg Image','*.jpg')]
+        typ = [('Jpeg Image','*.jpg'),('Png Image','*.png')]
         self.selectfile_path = tk.filedialog.askopenfilename(filetypes=typ)
         self.img = Image.open(self.selectfile_path)
-        self.img = self.img.resize((MAXIMAGEWIDTH,MAXIMAGEHEIGHT),Image.NEAREST)
+        self.img = self.img.resize((300,MAXIMAGEHEIGHT),Image.NEAREST)
         self.ph = ImageTk.PhotoImage(self.img)
         self.frame1Image["image"] = self.ph
         self.frame1Button2 = tk.Button(self.frame1, text="Create EmoFace",font=self.frame1font2,command=self.emocreate)
@@ -97,7 +97,7 @@ class MainUI():
         self.displayframe3()
 
     def copytext(self):
-        pyperclip.copy("#hackday2021 ものづくりって楽しいね"+self.emoticon)
+        pyperclip.copy(self.emoticon)
         self.frame3Button["text"] = "Copied!"
 
     def home(self):
